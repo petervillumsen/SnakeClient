@@ -1,4 +1,4 @@
-package example;
+package Logic;
 
 /**
  * Created by ejer on 19/11/15.
