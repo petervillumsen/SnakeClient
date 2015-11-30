@@ -49,7 +49,7 @@ public class LoginController
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
 
 
-        // vis startsk�rm
+        // vis startskaerm
         screen.show(Screen.LOGIN);
     }
 
