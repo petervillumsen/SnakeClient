@@ -9,93 +9,136 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Created by ejer on 30/11/15.
+ * @author alexanderlindkjaer
+ *Denne klasse er det Jframe der indeholder alle de andre panels. alt skærm trafikken samles og går igennem denne klasse
  */
-public class Screen extends JFrame {
+public class Screen extends JFrame
+{
+    //Tilegener ID
+    public static final String LOGINSCREEN = "name_1";
+    public static final String MENUSCREEN = "name_2";
+    public static final String CREATEGAMESCREEN = "name_3";
+    public static final String HIGHSCORESCREEN = "name_4";
+    public static final String DELETEGAMESCREEN = "name_5";
+    public static final String LOGOUTSCREEN = "name_6";
+
+    //instantiere variabler
+    public LoginScreen loginScreen;
+    private MenuScreen menuScreen;
+    private CreateGameScreen createGameScreen;
+    private HighScoreScreen highScoreScreen;
+    private DeleteGameScreen deleteGameScreen;
+    private LogOutScreen logOutScreen;
 
 
+    private CardLayout c;
 
-        //Tilegener ID
-        public static final String LOGIN = "name_1";
-        public static final String USERMENU = "name_2";
+    private JPanel contentPane;
 
+    /**
+     * create the frame
+     */
+    public Screen()
+    {
+        //setter atributter
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 529, 475);
+        contentPane = new JPanel();
+        contentPane.setBackground(new Color(62, 77, 86));
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
 
+        //layout sættes til cardlayout
+        contentPane.setLayout(new CardLayout(0, 0));
 
-        //instantiere variabler
-        public LoginScreen login;
-        public  MenuScreen userMenu;
+        //adder alle panels til dette contentpane
 
+        loginScreen = new LoginScreen();
+        contentPane.add(loginScreen, LOGINSCREEN);
 
+        menuScreen = new MenuScreen();
+        contentPane.add(menuScreen,MENUSCREEN);
 
+        createGameScreen = new CreateGameScreen();
+        contentPane.add(createGameScreen,CREATEGAMESCREEN);
 
-        private CardLayout c;
+        highScoreScreen = new HighScoreScreen();
+        contentPane.add(highScoreScreen,HIGHSCORESCREEN);
 
-        private JPanel contentPane;
+        deleteGameScreen = new DeleteGameScreen();
+        contentPane.add(deleteGameScreen,DELETEGAMESCREEN);
 
-        /**
-         * create the frame
-         */
-        public Screen()
-        {
-            //setter atributter
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setBounds(100, 100, 529, 475);
-            contentPane = new JPanel();
-            contentPane.setBackground(new Color(62, 77, 86));
-            contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-            setContentPane(contentPane);
+        logOutScreen = new LogOutScreen();
+        contentPane.add(logOutScreen,LOGOUTSCREEN);
 
-            //layout sættes til cardlayout
-            contentPane.setLayout(new CardLayout(0, 0));
+        c = (CardLayout) getContentPane().getLayout();
 
-            //adder alle panels til dette contentpane
+    }//metode slut
 
-            login = new LoginScreen();
-            contentPane.add(login, LOGIN);
+    /**
+     * Getter for login
+     * @return login
+     */
+    public LoginScreen getLogin()
+    {
+        return loginScreen;
+    }//metode slut
 
-            userMenu = new MenuScreen();
-            contentPane.add(userMenu,USERMENU);
+    /**
+     * Getter for userMenu
+     * @return userMenu
+     */
+    public MenuScreen getMenuScreen()
+    {
+        return menuScreen;
+    }//metode slut
 
+    /**
+     * denne metode sender de forskellige cards til framet.
+     * @param card
+     */
+    public void show(String card)
+    {
+        c.show(this.getContentPane(), card);
+    }//metode slut
 
-
-
-
-            c = (CardLayout) getContentPane().getLayout();
-
-        }//metode slut
-
-        /**
-         * Getter for login
-         * @return login
-         */
-        public LoginScreen getLogin()
-        {
-            return login;
-        }//metode slut
-
-        /**
-         * Getter for userMenu
-         * @return userMenu
-         */
-        public MenuScreen getUserMenu()
-        {
-            return userMenu;
-        }//metode slut
-
-        /**
-         * denne metode sender de forskellige cards til framet.
-         * @param card
-         */
-        public void show(String card)
-        {
-            c.show(this.getContentPane(), card);
-        }//metode slut
-
-        /**
-         * Getter for umViewBalance
-         * @return umViewBalance
-         */
+    /**
+     * Getter for createGameScreen
+     * @return createGameScreen
+     */
+    public CreateGameScreen getCreateGameScreen()
+    {
+        return createGameScreen;
+    }//metode slut
 
 
-    }//klasse slut
+    /**
+     * Getter for highScoreScreen
+     * @return highScoreScreen
+     */
+    public HighScoreScreen getHighScoreScreen()
+    {
+        return highScoreScreen;
+    }//metode slut
 
+
+    /**
+     * Getter for deleteGameScreen
+     * @return deleteGameScreen
+     */
+    public DeleteGameScreen getDeleteGameScreen()
+    {
+        return deleteGameScreen;
+    }//metode slut
+
+
+    /**
+     * Getter for logOutScreen
+     * @return logOutScreen
+     */
+    public LogOutScreen getLogOutScreen()
+    {
+        return logOutScreen;
+    }//metode slut
+
+}//klasse slut

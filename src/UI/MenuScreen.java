@@ -24,7 +24,6 @@ import java.awt.event.ActionEvent;
 public class MenuScreen extends JPanel {
 
     //instantiere variabler
-    private JLabel lblDeposit;
     private JButton btnHome;
     private JButton btnCreateGame;
     private JButton btnHighscores;
@@ -37,45 +36,45 @@ public class MenuScreen extends JPanel {
      */
     public MenuScreen()
     {
+        setBackground(new Color(0, 102, 0));
+        setBounds(100, 100, 529, 475);
         setLayout(null);
-        setBackground(new Color(62, 77, 86));
-
-        //opretter,giver attributter og adder deposit label
-        lblDeposit = new JLabel("Menu");
-        lblDeposit.setForeground(Color.WHITE);
-        lblDeposit.setHorizontalAlignment(SwingConstants.CENTER);
-        lblDeposit.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-        lblDeposit.setBounds(167, 10, 200, 50);
-        add(lblDeposit);
 
         //opretter,giver attributter og adder home knap
         btnHome = new JButton();
+        btnHome.setBounds(0, 0, 0, 0);
 
         add(btnHome);
 
         //opretter,giver attributter og adder deposit knap
         btnCreateGame = new JButton("Create Game");
+        btnCreateGame.setBounds(186, 88, 142, 50);
+        btnCreateGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         btnCreateGame.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent e) {
             }
         });
-        btnCreateGame.setBounds(211, 58, 117, 29);
         add(btnCreateGame);
 
         btnHighscores = new JButton("High Score");
-        btnHighscores.setBounds(211, 106, 117, 29);
+        btnHighscores.setBounds(186, 150, 142, 50);
+        btnHighscores.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         add(btnHighscores);
 
         btnDeleteGame = new JButton("Delete Game");
-        btnDeleteGame.setBounds(211, 160, 117, 29);
+        btnDeleteGame.setBounds(186, 209, 142, 46);
+        btnDeleteGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         add(btnDeleteGame);
 
         btnLogout = new JButton("Log out");
-        btnLogout.setBounds(211, 218, 117, 29);
+        btnLogout.setBounds(186, 267, 142, 46);
+        btnLogout.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         add(btnLogout);
 
         btnTOM = new JButton("TOM");
-        btnTOM.setBounds(211, 259, 117, 29);
+        btnTOM.setBounds(186, 325, 142, 46);
+        btnTOM.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         add(btnTOM);
 
     }//metode slut
