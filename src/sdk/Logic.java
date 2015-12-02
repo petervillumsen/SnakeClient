@@ -18,15 +18,15 @@ public class Logic {
 
         String json = new Gson().toJson(user);
 
-       // serverConnection.post(json, "login/");
+       serverConnection.post(json, "login/");
+
+        System.out.printf(json);
 
         if(serverConnection.post(json, "login/")==200){
             return true;
         }else {
             return false;
         }
-
-
     }
     public static void createUser(User user){
 

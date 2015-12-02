@@ -109,7 +109,6 @@ public class WebServer {
 
         }
 
-
         // System.out.println(data);
         //return "OK" ;
     }
@@ -200,18 +199,12 @@ public class WebServer {
 
         private String movement;
 
-
         public void setMovement(String movement) {
             this.movement = movement;
         }
 
-
         public String getMovement() {
             return movement;
         }
-
-
-
     }
-
 }

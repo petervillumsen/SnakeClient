@@ -24,9 +24,8 @@ import java.awt.event.ActionEvent;
 public class MenuScreen extends JPanel {
 
     //instantiere variabler
-    private JButton btnHome;
     private JButton btnCreateGame;
-    private JButton btnHighscores;
+    private JButton btnHighScores;
     private JButton btnDeleteGame;
     private JButton btnLogout;
     private JButton btnTOM;
@@ -40,27 +39,16 @@ public class MenuScreen extends JPanel {
         setBounds(100, 100, 529, 475);
         setLayout(null);
 
-        //opretter,giver attributter og adder home knap
-        btnHome = new JButton();
-        btnHome.setBounds(0, 0, 0, 0);
-
-        add(btnHome);
-
         //opretter,giver attributter og adder deposit knap
         btnCreateGame = new JButton("Create Game");
         btnCreateGame.setBounds(186, 88, 142, 50);
         btnCreateGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-        btnCreateGame.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
         add(btnCreateGame);
 
-        btnHighscores = new JButton("High Score");
-        btnHighscores.setBounds(186, 150, 142, 50);
-        btnHighscores.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-        add(btnHighscores);
+        btnHighScores = new JButton("High Score");
+        btnHighScores.setBounds(186, 150, 142, 50);
+        btnHighScores.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+        add(btnHighScores);
 
         btnDeleteGame = new JButton("Delete Game");
         btnDeleteGame.setBounds(186, 209, 142, 46);
@@ -79,55 +67,37 @@ public class MenuScreen extends JPanel {
 
     }//metode slut
 
-
-
-    public JButton getBtnHome() {
-        return btnHome;
-    }
-
-    public void setBtnHome(JButton btnHome) {
-        this.btnHome = btnHome;
-    }
-
-    public JButton getBtnCreateGame() {
+    public JButton getBtnCreateGame()
+    {
         return btnCreateGame;
     }
 
-    public void setBtnCreateGame(JButton btnCreateGame) {
-        this.btnCreateGame = btnCreateGame;
+    public JButton getBtnHighScores() {
+        return btnHighScores;
     }
 
-    public JButton getBtnHighscores() {
-        return btnHighscores;
-    }
-
-    public void setBtnHighscores(JButton btnHighscores) {
-        this.btnHighscores = btnHighscores;
-    }
-
-    public JButton getBtnDeleteGame() {
+    public JButton getBtnDeleteGame()
+    {
         return btnDeleteGame;
     }
 
-    public void setBtnDeleteGame(JButton btnDeleteGame) {
-        this.btnDeleteGame = btnDeleteGame;
-    }
-
-    public JButton getBtnLogout() {
+    public JButton getBtnLogout()
+    {
         return btnLogout;
     }
 
-    public void setBtnLogout(JButton btnLogout) {
-        this.btnLogout = btnLogout;
+    public JButton getBtnTOM()
+    {
+        return btnTOM;
     }
-
 
     public void addActionListener(ActionListener l)
     {
-        btnHome.addActionListener(l);
         btnCreateGame.addActionListener(l);
-        btnLogout.addActionListener(l);
+        btnHighScores.addActionListener(l);
         btnDeleteGame.addActionListener(l);
-        btnHighscores.addActionListener(l);
+        btnLogout.addActionListener(l);
+        btnTOM.addActionListener(l);
+
     }//metode slut
 }//klasse slut

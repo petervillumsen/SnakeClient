@@ -26,6 +26,10 @@ public class LoginScreen extends JPanel
     private JButton btnLogin;
     private JLabel lblNewLabel;
     private JLabel lblError;
+    private JLabel lblLogo;
+
+    private String username;
+    private String password;
 
     /**
      * Create the panel.
@@ -34,7 +38,7 @@ public class LoginScreen extends JPanel
     {
         setBackground(new Color(0, 102, 0));
         setLayout(null);
-        setBounds(100, 100, 529, 423);
+        setBounds(100, 100, 529, 475);
 
         //opretter,giver attributter og adder username textfield
         txtUser = new JTextField();
@@ -61,11 +65,9 @@ public class LoginScreen extends JPanel
         add(lblPassword);
 
         //opretter,giver attributter og adder login knap
-        btnLogin = new JButton("LoginScreen");
+        btnLogin = new JButton("Login");
         btnLogin.setBounds(198, 364, 117, 29);
         add(btnLogin);
-
-
 
         //opretter,giver attributter og adder error label
         lblError = new JLabel("Incorrect Username or Password, please try agian");
@@ -74,6 +76,11 @@ public class LoginScreen extends JPanel
         lblError.setBounds(116, 336, 309, 16);
         lblError.setVisible(false);
         add(lblError);
+
+        lblLogo = new JLabel("");
+        lblLogo.setIcon(new ImageIcon(LoginScreen.class.getResource("/Resources/Snake.png")));
+        lblLogo.setBounds(170, 100, 203, 117);
+        add(lblLogo);
 
     }//metode slut
 
@@ -90,18 +97,20 @@ public class LoginScreen extends JPanel
      * Getters for txtUser
      * @return txtUser
      */
-    public JTextField getTxtUser()
+    public String getTxtUsername()
     {
-        return txtUser;
+        username = txtUser.getText();
+        return username;
     }//metode slut
 
     /**
      * Getters for txtPassword
      * @return txtPassword
      */
-    public JTextField getTxtPassword()
+    public String getTxtPassword()
     {
-        return txtPassword;
+        password = txtPassword.getText();
+        return password;
     }//metode slut
 
     /**

@@ -20,19 +20,15 @@ public class Screen extends JFrame
     public static final String CREATEGAMESCREEN = "name_3";
     public static final String HIGHSCORESCREEN = "name_4";
     public static final String DELETEGAMESCREEN = "name_5";
-    public static final String LOGOUTSCREEN = "name_6";
 
     //instantiere variabler
     public LoginScreen loginScreen;
-    private MenuScreen menuScreen;
-    private CreateGameScreen createGameScreen;
-    private HighScoreScreen highScoreScreen;
-    private DeleteGameScreen deleteGameScreen;
-    private LogOutScreen logOutScreen;
-
+    public MenuScreen menuScreen;
+    public CreateGameScreen createGameScreen;
+    public HighScoreScreen highScoreScreen;
+    public DeleteGameScreen deleteGameScreen;
 
     private CardLayout c;
-
     private JPanel contentPane;
 
     /**
@@ -68,11 +64,17 @@ public class Screen extends JFrame
         deleteGameScreen = new DeleteGameScreen();
         contentPane.add(deleteGameScreen,DELETEGAMESCREEN);
 
-        logOutScreen = new LogOutScreen();
-        contentPane.add(logOutScreen,LOGOUTSCREEN);
-
         c = (CardLayout) getContentPane().getLayout();
 
+    }//metode slut
+
+    /**
+     * denne metode sender de forskellige cards til framet.
+     * @param card
+     */
+    public void show(String card)
+    {
+        c.show(this.getContentPane(), card);
     }//metode slut
 
     /**
@@ -94,15 +96,6 @@ public class Screen extends JFrame
     }//metode slut
 
     /**
-     * denne metode sender de forskellige cards til framet.
-     * @param card
-     */
-    public void show(String card)
-    {
-        c.show(this.getContentPane(), card);
-    }//metode slut
-
-    /**
      * Getter for createGameScreen
      * @return createGameScreen
      */
@@ -110,7 +103,6 @@ public class Screen extends JFrame
     {
         return createGameScreen;
     }//metode slut
-
 
     /**
      * Getter for highScoreScreen
@@ -121,7 +113,6 @@ public class Screen extends JFrame
         return highScoreScreen;
     }//metode slut
 
-
     /**
      * Getter for deleteGameScreen
      * @return deleteGameScreen
@@ -131,14 +122,5 @@ public class Screen extends JFrame
         return deleteGameScreen;
     }//metode slut
 
-
-    /**
-     * Getter for logOutScreen
-     * @return logOutScreen
-     */
-    public LogOutScreen getLogOutScreen()
-    {
-        return logOutScreen;
-    }//metode slut
 
 }//klasse slut

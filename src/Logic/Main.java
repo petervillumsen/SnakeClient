@@ -4,8 +4,7 @@ package Logic;
  * Created by ejer on 19/11/15.
  */
 
-import UI.LoginScreen;
-import sdk.Logic;
+import Logic.LogicController;
 
 import java.io.*;
 
@@ -13,10 +12,9 @@ public class Main {
 
     public static void main(String args[]) throws IOException {
 
-        LoginController lgCon = new LoginController();
+        Logic.LogicController lc = new Logic.LogicController();
 
-        lgCon.run();
-
-
+        lc.run();
+        //logic.login("HeinHero","123");
     }
 }
