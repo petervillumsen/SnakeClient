@@ -36,6 +36,7 @@ public class CreateGameScreen extends JPanel
 
     private String gameName;
     private String controls;
+    private JLabel lblGameWasCreated;
 
     public CreateGameScreen()
     {
@@ -85,8 +86,14 @@ public class CreateGameScreen extends JPanel
         add(lblInstructions);
 
         btnStartGameNow = new JButton("Start game now");
-        btnStartGameNow.setBounds(409, 423, 134, 28);
+        btnStartGameNow.setBounds(253, 406, 132, 28);
         add(btnStartGameNow);
+
+        lblGameWasCreated = new JLabel("Game was created!");
+        lblGameWasCreated.setForeground(new Color(255, 255, 0));
+        lblGameWasCreated.setBounds(263, 378, 134, 16);
+        lblGameWasCreated.setVisible(false);
+        add(lblGameWasCreated);
 
     }//metode slut
 
@@ -103,6 +110,14 @@ public class CreateGameScreen extends JPanel
     {
         return btnBack;
     }//metode slut
+
+    public void setLblCreateGame(JLabel lblCreateGame) {
+        this.lblCreateGame = lblCreateGame;
+    }
+
+    public JLabel getLblCreateGame() {
+        return lblCreateGame;
+    }
 
     public String getGameName()
     {

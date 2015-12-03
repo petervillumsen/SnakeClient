@@ -19,6 +19,7 @@ public class Game {
     private String opponentControls;
     private int status;
     private Date created;
+    private int mapSize;
 
     public void setGameId(int gameId) {
         this.gameId = gameId;
@@ -64,4 +65,11 @@ public class Game {
         this.created = created;
     }
 
+    public int getMapSize() {
+        return mapSize;
+    }
+
+    public void setMapSize(int mapSize) {
+        this.mapSize = mapSize;
+    }
 }

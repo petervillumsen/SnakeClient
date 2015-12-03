@@ -5,8 +5,14 @@ package sdk;
  */
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
 
 public class Logic {
+
+    User currentUser = new User ();
+
 
     public boolean login(String username, String password){
 
@@ -23,6 +29,17 @@ public class Logic {
         System.out.printf(json);
 
         if(serverConnection.post(json, "login/")==200){
+
+            for (User users : sdk.Logic.getUser()){
+
+                if (users.getUsername().equals(username))
+                {
+                    currentUser = users;
+                }
+
+            }
+
+
             return true;
         }else {
             return false;
@@ -34,7 +51,17 @@ public class Logic {
     public static void deleteUser(int userId){
 
     }
-    public static void getUser(int userId){
+    public static ArrayList<User> getUser(){
+
+        ServerConnection serverConnection = new ServerConnection();
+
+        String json = serverConnection.get("users/");
+
+        //henyer users ned i en arrayList
+        ArrayList<User> users = new Gson().fromJson(json, new TypeToken<ArrayList<User>>(){}.getType());
+
+        return users;
+
 
     }
     public static void getGame(int gameId){
@@ -46,18 +73,30 @@ public class Logic {
     public static void startGame(int gameId){
 
     }
-    public static void createGame(String name, int status){
+    public boolean createGame(String name, String moves){
 
         ServerConnection serverConnection = new ServerConnection();
 
+        Gamer host = new Gamer();
+        host.setId(currentUser.getId());
+        host.setControls(moves);
+
+
         Game game = new Game();
         game.setName(name);
-        //game.setHost();
-        game.setStatus(status);
+        game.setHost(host);
+        game.setMapSize(15);
+
 
         String json = new Gson().toJson(game);
 
-        serverConnection.post(json, "create");
+        int response = serverConnection.post(json,"games/");
+
+        if(response==201){
+            return true;
+        }
+
+        return false;
 
     }
     public static void deleteGame(int gameId){

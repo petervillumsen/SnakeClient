@@ -34,17 +34,28 @@ public class ServerConnection {
         return port;
     }
 
-    public void get(String path){
+    public String get(String path){
 
-        Client client = Client.create();
+        try {
+            Client client = Client.create();
 
-        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
-        ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
+            WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+            ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
 
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+            String output = response.getEntity(String.class);
+            System.out.println(output);
 
+            int respone =response.getStatus();
+
+            if (response.getStatus() != 0) {
+                return output;
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public Integer post(String json, String path){

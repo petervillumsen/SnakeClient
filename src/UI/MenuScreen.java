@@ -25,6 +25,7 @@ public class MenuScreen extends JPanel {
 
     //instantiere variabler
     private JButton btnCreateGame;
+    private JButton btnJoinGame;
     private JButton btnHighScores;
     private JButton btnDeleteGame;
     private JButton btnLogout;
@@ -44,6 +45,11 @@ public class MenuScreen extends JPanel {
         btnCreateGame.setBounds(186, 88, 142, 50);
         btnCreateGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         add(btnCreateGame);
+
+        btnJoinGame = new JButton("Join Game");
+        btnJoinGame.setBounds(186, 209, 142, 46);
+        btnJoinGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+        add(btnJoinGame);
 
         btnHighScores = new JButton("High Score");
         btnHighScores.setBounds(186, 150, 142, 50);
@@ -72,7 +78,13 @@ public class MenuScreen extends JPanel {
         return btnCreateGame;
     }
 
-    public JButton getBtnHighScores() {
+    public JButton getBtnJoinGame()
+    {
+        return btnJoinGame;
+    }
+
+    public JButton getBtnHighScores()
+    {
         return btnHighScores;
     }
 
@@ -94,6 +106,7 @@ public class MenuScreen extends JPanel {
     public void addActionListener(ActionListener l)
     {
         btnCreateGame.addActionListener(l);
+        btnJoinGame.addActionListener(l);
         btnHighScores.addActionListener(l);
         btnDeleteGame.addActionListener(l);
         btnLogout.addActionListener(l);

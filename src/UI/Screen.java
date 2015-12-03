@@ -18,13 +18,15 @@ public class Screen extends JFrame
     public static final String LOGINSCREEN = "name_1";
     public static final String MENUSCREEN = "name_2";
     public static final String CREATEGAMESCREEN = "name_3";
-    public static final String HIGHSCORESCREEN = "name_4";
-    public static final String DELETEGAMESCREEN = "name_5";
+    public static final String JOINGAMESCREEN = "name_4";
+    public static final String HIGHSCORESCREEN = "name_5";
+    public static final String DELETEGAMESCREEN = "name_6";
 
     //instantiere variabler
     public LoginScreen loginScreen;
     public MenuScreen menuScreen;
     public CreateGameScreen createGameScreen;
+    public JoinGameScreen joinGameScreen;
     public HighScoreScreen highScoreScreen;
     public DeleteGameScreen deleteGameScreen;
 
@@ -57,6 +59,9 @@ public class Screen extends JFrame
 
         createGameScreen = new CreateGameScreen();
         contentPane.add(createGameScreen,CREATEGAMESCREEN);
+
+        joinGameScreen = new JoinGameScreen();
+        contentPane.add(joinGameScreen,JOINGAMESCREEN);
 
         highScoreScreen = new HighScoreScreen();
         contentPane.add(highScoreScreen,HIGHSCORESCREEN);
@@ -102,6 +107,15 @@ public class Screen extends JFrame
     public CreateGameScreen getCreateGameScreen()
     {
         return createGameScreen;
+    }//metode slut
+
+    /**
+     * Getter for joinGameScreen
+     * @return joinGameScreen
+     */
+    public JoinGameScreen getJoinGameScreen()
+    {
+        return joinGameScreen;
     }//metode slut
 
     /**
