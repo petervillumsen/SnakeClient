@@ -1,7 +1,7 @@
 package sdk;
 
 /**
- * Created by ejer on 03/12/15.
+ * Created by jesperbruun on 15/10/15.
  */
 public class Gamer extends User {
 
@@ -51,4 +51,3 @@ public class Gamer extends User {
         return controls;
     }
 }
-

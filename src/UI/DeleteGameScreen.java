@@ -25,7 +25,8 @@ public class DeleteGameScreen extends JPanel
     private JTextField textFieldGameID;
     private JButton btnBack;
     private JButton btnDeleteGame;
-
+    private JLabel lblGameDeleted;
+    private JLabel lblWrongInput;
     private String gameID;
 
     /**
@@ -66,7 +67,32 @@ public class DeleteGameScreen extends JPanel
         btnDeleteGame = new JButton("Delete Now");
         btnDeleteGame.setBounds(245, 150, 134, 38);
         add(btnDeleteGame);
+
+        //opretter,giver attributter og adder error label
+        lblGameDeleted = new JLabel("Game Deleted");
+        lblGameDeleted.setForeground(new Color(255, 204, 51));
+        lblGameDeleted.setHorizontalAlignment(SwingConstants.CENTER);
+        lblGameDeleted.setBounds(116, 336, 309, 16);
+        lblGameDeleted.setVisible(false);
+        add(lblGameDeleted);
+
+        //opretter,giver attributter og adder error label
+        lblWrongInput = new JLabel("Wrong input");
+        lblWrongInput.setForeground(new Color(255, 204, 51));
+        lblWrongInput.setHorizontalAlignment(SwingConstants.CENTER);
+        lblWrongInput.setBounds(116, 336, 309, 16);
+        lblWrongInput.setVisible(false);
+        add(lblWrongInput);
+
     }//metode slut
+
+    public JLabel getLblWrongInput() {
+        return lblWrongInput;
+    }
+
+    public JLabel getLblGameDeleted() {
+        return lblGameDeleted;
+    }
 
     public JTextField getTextFieldGameID()
     {

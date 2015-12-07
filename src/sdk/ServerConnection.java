@@ -58,17 +58,12 @@ public class ServerConnection {
         return "";
     }
 
-    public Integer post(String json, String path){
+    public int post(String json, String path){
 
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
-
-      //  if (response.getStatus() != 200 && response.getStatus() != 201) {
-        //    throw new RuntimeException("Failed : HTTP error code : "
-       //             + response.getStatus());
-       // }
 
         int message = response.getStatus();
 
@@ -79,23 +74,27 @@ public class ServerConnection {
 
     }
 
-    public Integer put(String json, String path) {
+      public int put(String json, String path)
+    {
 
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
-        ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
+        ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
 
-        //  if (response.getStatus() != 200 && response.getStatus() != 201) {
-        //    throw new RuntimeException("Failed : HTTP error code : "
-        //             + response.getStatus());
-        // }
 
-        int message = response.getStatus();
+        int responser = response.getStatus();
 
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+        return responser;
+    }
 
-        return message;
+    public int delete (String path)
+    {
+        Client client = Client.create();
+        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
+
+        int responser = response.getStatus();
+        return responser;
     }
 }

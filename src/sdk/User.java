@@ -1,10 +1,12 @@
 package sdk;
 
 import java.sql.Date;
+import java.util.Scanner;
+
 
 /**
- * Created by ejer on 19/11/15.
  */
+//
 public class User {
 
     //creating variables

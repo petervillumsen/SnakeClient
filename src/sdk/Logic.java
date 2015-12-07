@@ -9,10 +9,22 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
+
+
 public class Logic {
 
-    User currentUser = new User ();
+    ServerConnection serverConnection = new ServerConnection();
 
+    private static User currentUser;
+
+    public Logic(){
+        currentUser = new User();
+
+    }
+
+    public static User getCurrentUser() {
+        return currentUser;
+    }
 
     public boolean login(String username, String password){
 
@@ -47,6 +59,7 @@ public class Logic {
     }
     public static void deleteUser(int userId){
 
+
     }
     public static ArrayList<User> getUser(){
 
@@ -60,10 +73,8 @@ public class Logic {
         return users;
     }
 
-    public ArrayList<Game> getOpenGames()
+    public ArrayList<Game> openGames()
     {
-        ServerConnection serverConnection = new ServerConnection();
-
         String json = serverConnection.get("games/open/");
 
         ArrayList<Game> openGames = new Gson().fromJson(json, new TypeToken<ArrayList<Game>>(){}.getType());
@@ -71,12 +82,18 @@ public class Logic {
         return openGames;
     }
 
-    public static void joinGame(int gameId, User opponent, String controls){
-
+    public int joinGame(Game game)
+    {
+        int json = serverConnection.put(new Gson().toJson(game),"games/join/");
+        return json;
     }
-    public static void startGame(int gameId){
 
+    public int startGame (Game game)
+    {
+        int json = serverConnection.put(new Gson().toJson(game), "games/start/");
+        return json;
     }
+
     public boolean createGame(String name, String moves){
 
         ServerConnection serverConnection = new ServerConnection();
@@ -104,7 +121,8 @@ public class Logic {
     }
 
 
-    public static void deleteGame(int gameId){
-
+    public int deleteGame(int gameId){
+        int json = serverConnection.delete("games/" + gameId + "/");
+        return json;
     }
 }

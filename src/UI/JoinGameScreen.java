@@ -20,10 +20,7 @@ public class JoinGameScreen extends JPanel {
     private String enterControls;
     private JLabel lblError;
     private JLabel lblNoControls;
-
-    public JLabel getLblNoControls() {
-        return lblNoControls;
-    }
+    private JLabel lblGameJoined;
 
     /**
      * Create the panel.
@@ -88,23 +85,36 @@ public class JoinGameScreen extends JPanel {
         lblNoControls.setBounds(116, 336, 309, 16);
         lblNoControls.setVisible(false);
         add(lblNoControls);
+
+        //opretter,giver attributter og adder error label
+        lblGameJoined = new JLabel("Game Joined");
+        lblGameJoined.setForeground(new Color(255, 204, 51));
+        lblGameJoined.setHorizontalAlignment(SwingConstants.CENTER);
+        lblGameJoined.setBounds(116, 336, 309, 16);
+        lblGameJoined.setVisible(false);
+        add(lblGameJoined);
+    }
+
+    public JLabel getLblNoControls() {
+        return lblNoControls;
+    }
+
+    public JLabel getLblGameJoined() {
+        return lblGameJoined;
     }
 
     public JTextField getTextFieldEnterControls() {
-        enterControls = textFieldEnterControls.getText();
         return textFieldEnterControls;
+    }
+
+    public JTextField getTextGameId() {
+        return textGameId;
     }
 
     public JLabel getLblError()
     {
         return lblError;
     }
-
-    public JTextField getTextFieldGameID()
-    {
-        gameID = textGameId.getText();
-        return textGameId;
-    }//metode slut
 
     public JButton getBtnBack()
     {
