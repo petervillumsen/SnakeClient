@@ -48,7 +48,7 @@ public class LogicController
             //der trykked på login knap
             if (e.getSource() == screen.getLogin().getBtnLogin())
             {
-                screen.getLogin().getLblError().setVisible(true);
+                screen.getLogin().getLblError().setVisible(false);
                 if(logic.login(username,password)) {
                     screen.show(Screen.MENUSCREEN);
 
@@ -126,13 +126,22 @@ public class LogicController
             // TODO Auto-generated method stub
             if(e.getSource() == screen.getJoinGameScreen().getBtnBack())
             {
+                screen.getJoinGameScreen().getTextFieldGameID().setText("");
+                screen.getJoinGameScreen().getLblError().setVisible(false);
+                screen.getJoinGameScreen().getLblNoControls().setVisible(false);
                 screen.show(Screen.MENUSCREEN);
             }
 
             if(e.getSource() == screen.getJoinGameScreen().getBtnJoin())
             {
+                if(screen.getJoinGameScreen().getTextFieldGameID().equals("")||
+                        screen.getJoinGameScreen().getTextFieldEnterControls().equals(""))
+                {
+                    screen.getJoinGameScreen().getLblNoControls().setVisible(true);
+                    screen.getJoinGameScreen().getLblError().setVisible(false);
+                }
                 //SKAL ÆNDRES TIL WHAT EVER Join GAME ER!!!
-                screen.show(Screen.MENUSCREEN);
+
             }
         }
     }

@@ -70,7 +70,7 @@ public class LoginScreen extends JPanel
         add(btnLogin);
 
         //opretter,giver attributter og adder error label
-        lblError = new JLabel("Incorrect Username or Password, please try agian");
+        lblError = new JLabel("Incorrect Username or Password, please try again");
         lblError.setForeground(new Color(255, 204, 51));
         lblError.setHorizontalAlignment(SwingConstants.CENTER);
         lblError.setBounds(116, 336, 309, 16);
@@ -88,6 +88,7 @@ public class LoginScreen extends JPanel
      * Getters for btnLogin
      * @return btnLogin
      */
+
     public JButton getBtnLogin()
     {
         return btnLogin;

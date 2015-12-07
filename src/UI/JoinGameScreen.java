@@ -1,15 +1,7 @@
 package UI;
 
-import Logic.LogicController;
-
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JEditorPane;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import java.awt.Font;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class JoinGameScreen extends JPanel {
@@ -25,6 +17,13 @@ public class JoinGameScreen extends JPanel {
     private JTextField textGameId;
     private JTextField textFieldEnterControls;
     private String gameID;
+    private String enterControls;
+    private JLabel lblError;
+    private JLabel lblNoControls;
+
+    public JLabel getLblNoControls() {
+        return lblNoControls;
+    }
 
     /**
      * Create the panel.
@@ -72,8 +71,34 @@ public class JoinGameScreen extends JPanel {
         lblJoinControl.setIcon(new ImageIcon(JoinGameScreen.class.getResource("/Resources/control.png")));
         lblJoinControl.setBounds(162, 134, 192, 146);
         add(lblJoinControl);
+
+        //opretter,giver attributter og adder error label
+        lblError = new JLabel("Game not found");
+        lblError.setForeground(new Color(255, 204, 51));
+        lblError.setHorizontalAlignment(SwingConstants.CENTER);
+        lblError.setBounds(116, 336, 309, 16);
+        lblError.setVisible(false);
+        add(lblError);
+
+
+        //opretter,giver attributter og adder error label
+        lblNoControls = new JLabel("Please enter Controls and Game Name");
+        lblNoControls.setForeground(new Color(255, 204, 51));
+        lblNoControls.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNoControls.setBounds(116, 336, 309, 16);
+        lblNoControls.setVisible(false);
+        add(lblNoControls);
     }
 
+    public JTextField getTextFieldEnterControls() {
+        enterControls = textFieldEnterControls.getText();
+        return textFieldEnterControls;
+    }
+
+    public JLabel getLblError()
+    {
+        return lblError;
+    }
 
     public JTextField getTextFieldGameID()
     {

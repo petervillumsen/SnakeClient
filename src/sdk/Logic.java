@@ -32,13 +32,10 @@ public class Logic {
 
             for (User users : sdk.Logic.getUser()){
 
-                if (users.getUsername().equals(username))
-                {
+                if (users.getUsername().equals(username)) {
                     currentUser = users;
                 }
-
             }
-
 
             return true;
         }else {
@@ -61,12 +58,19 @@ public class Logic {
         ArrayList<User> users = new Gson().fromJson(json, new TypeToken<ArrayList<User>>(){}.getType());
 
         return users;
-
-
     }
-    public static void getGame(int gameId){
 
+    public ArrayList<Game> getOpenGames()
+    {
+        ServerConnection serverConnection = new ServerConnection();
+
+        String json = serverConnection.get("games/open/");
+
+        ArrayList<Game> openGames = new Gson().fromJson(json, new TypeToken<ArrayList<Game>>(){}.getType());
+
+        return openGames;
     }
+
     public static void joinGame(int gameId, User opponent, String controls){
 
     }
@@ -97,8 +101,9 @@ public class Logic {
         }
 
         return false;
-
     }
+
+
     public static void deleteGame(int gameId){
 
     }
