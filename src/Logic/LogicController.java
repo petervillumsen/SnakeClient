@@ -1,12 +1,15 @@
 package Logic;
 
 import UI.Screen;
-import sdk.Game;
-import sdk.Gamer;
-import sdk.Logic;
-
+import sdk.*;
+import javax.swing.table.AbstractTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+
+
+
 
 public class LogicController
 {
@@ -49,8 +52,8 @@ public class LogicController
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            String username = screen.getLogin().getTxtUsername();
-            String password = screen.getLogin().getTxtPassword();
+            String password = screen.getLogin().getTxtPassword().getText();
+            String username = screen.getLogin().getTxtUsername().getText();
 
             //der trykked på login knap
             if (e.getSource() == screen.getLogin().getBtnLogin())
@@ -88,10 +91,16 @@ public class LogicController
             if(e.getSource() == screen.getMenuScreen().getBtnHighScores())
             {
                 screen.show(Screen.HIGHSCORESCREEN);
+                ArrayList<Score> highScores = logic.getHighScore();
+                HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
+                screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
+
             }
             if(e.getSource() == screen.getMenuScreen().getBtnLogout())
             {
                 screen.show(Screen.LOGINSCREEN);
+                screen.getLogin().getTxtPassword().setText("");
+                screen.getLogin().getTxtUsername().setText("");
             }
         }
     }
@@ -102,23 +111,24 @@ public class LogicController
         public void actionPerformed(ActionEvent e)
         {
 
-            String gameName = screen.createGameScreen.getGameName();
-            String moves = screen.createGameScreen.getControls();
+            String gameName = screen.createGameScreen.getGameName().getText();
+            String moves = screen.createGameScreen.getControls().getText();
 
             // TODO Auto-generated method stub
             if(e.getSource() == screen.getCreateGameScreen().getBtnBack())
             {
+                screen.getCreateGameScreen().getControls().setText("");
+                screen.getCreateGameScreen().getGameName().setText("");
                 screen.show(Screen.MENUSCREEN);
             }
 
             if(e.getSource() == screen.getCreateGameScreen().getBtnStartGameNow())
             {
                 if(logic.createGame(gameName, moves)) {
-                    screen.getCreateGameScreen().getLblCreateGame().setVisible(true);
+
 
                 }else {
 
-                    screen.getCreateGameScreen().getLblCreateGame().setVisible(false);
 
                 }
 
@@ -202,8 +212,7 @@ public class LogicController
     private class DeleteGameScreenActionListener implements ActionListener
     {
         @Override
-        public void actionPerformed(ActionEvent e)
-        {
+        public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
             if(e.getSource() == screen.getDeleteGameScreen().getBtnBack())
             {
@@ -239,15 +248,65 @@ public class LogicController
     private class HighScoreScreenActionListener implements ActionListener
     {
         @Override
-        public void actionPerformed(ActionEvent e)
-        {
+        public void actionPerformed(ActionEvent e) {
             // TODO Auto-generated method stub
-            if(e.getSource() == screen.getHighScoreScreen().getBtnBack())
-            {
+            if (e.getSource() == screen.getHighScoreScreen().getBtnBack()) {
                 screen.show(Screen.MENUSCREEN);
             }
         }
     }
+
+    public class HighScoreTableModel extends AbstractTableModel
+    {
+        private static final long serialVersionUID = 1l;
+        private ArrayList<Score> highScores;
+        private String[] columns = {"Username", "Score"};
+        private int numberOfRows;
+
+
+    public HighScoreTableModel(ArrayList<Score> highScores)
+    {
+        this.highScores = highScores;
+        fireTableStructureChanged();
+    }
+        @Override
+        public int getColumnCount()
+        {
+            return columns.length;
+        }
+        @Override
+        public Class <?> getColumnClass(int columnIndex)
+        {
+            return super.getColumnClass(columnIndex);
+        }
+
+        @Override
+        public  int getRowCount()
+        {
+            numberOfRows = highScores.size();
+            return numberOfRows;
+        }
+        public String getColumnName(int columnIndex)
+        {
+            return columns[columnIndex];
+        }
+
+        @Override
+        public Object getValueAt (int rowIndex, int columnIndex)
+        {
+            switch (columnIndex)
+            {
+                case 0 :
+                    return highScores.get(rowIndex).getGame().getWinner().getUsername();
+                case 1 :
+                    return highScores.get(rowIndex).getScore();
+            }
+            return null;
+        }
+    }
+
+
+
 }//inner class slit
 
 

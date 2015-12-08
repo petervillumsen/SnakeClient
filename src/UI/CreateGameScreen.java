@@ -3,24 +3,10 @@ package UI;
 /**
  * Created by ejer on 30/11/15.
  */
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.border.LineBorder;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class CreateGameScreen extends JPanel
 {
@@ -119,16 +105,19 @@ public class CreateGameScreen extends JPanel
         return lblCreateGame;
     }
 
-    public String getGameName()
-    {
-        gameName = textFieldGameName.getText();
-        return gameName;
+    public JLabel getLblGameWasCreated() {
+        return lblGameWasCreated;
     }
 
-    public String getControls()
+    public JTextField getGameName()
     {
-        controls = textFieldControls.getText();
-        return controls;
+
+        return textFieldGameName;
+    }
+
+    public JTextField getControls()
+    {
+        return textFieldControls;
     }
 
     public void addActionListener(ActionListener l)

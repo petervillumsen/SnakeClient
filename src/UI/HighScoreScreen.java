@@ -18,12 +18,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import javax.swing.JTable;
 
 public class HighScoreScreen extends JPanel
 {
     //instantiere variabler
     private JButton btnBack;
     private JLabel lblHighScore;
+    private JTable table;
 
     /**
      * Create the panel.
@@ -47,7 +49,15 @@ public class HighScoreScreen extends JPanel
         btnBack.setBounds(16, 10, 42, 38);
         add(btnBack);
 
+        table = new JTable();
+        table.setBounds(83, 106, 365, 323);
+        add(table);
+
     }//metode slut
+
+    public JTable getTable() {
+        return table;
+    }
 
     /**
      * Getter for btnHome

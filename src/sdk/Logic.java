@@ -6,7 +6,7 @@ package sdk;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
+import UI.Screen;
 import java.util.ArrayList;
 
 
@@ -16,9 +16,11 @@ public class Logic {
     ServerConnection serverConnection = new ServerConnection();
 
     private static User currentUser;
+    private Screen screen;
 
     public Logic(){
         currentUser = new User();
+        screen = new Screen();
 
     }
 
@@ -84,7 +86,7 @@ public class Logic {
 
     public int joinGame(Game game)
     {
-        int json = serverConnection.put(new Gson().toJson(game),"games/join/");
+        int json = serverConnection.put(new Gson().toJson(game), "games/join/");
         return json;
     }
 
@@ -111,18 +113,25 @@ public class Logic {
 
         String json = new Gson().toJson(game);
 
-        int response = serverConnection.post(json,"games/");
+        int response = serverConnection.post(json, "games/");
 
         if(response==201){
+            screen.getCreateGameScreen().getLblGameWasCreated().setVisible(true);
             return true;
-        }
 
+        }
         return false;
     }
-
 
     public int deleteGame(int gameId){
         int json = serverConnection.delete("games/" + gameId + "/");
         return json;
+    }
+    public ArrayList<Score> getHighScore()
+    {
+        String json = serverConnection.get("highScores/");
+        ArrayList<Score> highScores = new Gson().fromJson(json, new TypeToken<ArrayList<Score>>() {}.getType());
+
+        return highScores;
     }
 }

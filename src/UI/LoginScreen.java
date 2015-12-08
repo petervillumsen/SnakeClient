@@ -98,20 +98,18 @@ public class LoginScreen extends JPanel
      * Getters for txtUser
      * @return txtUser
      */
-    public String getTxtUsername()
+    public JTextField getTxtUsername()
     {
-        username = txtUser.getText();
-        return username;
+        return txtUser;
     }//metode slut
 
     /**
      * Getters for txtPassword
      * @return txtPassword
      */
-    public String getTxtPassword()
+    public JTextField getTxtPassword()
     {
-        password = txtPassword.getText();
-        return password;
+        return txtPassword;
     }//metode slut
 
     /**
