@@ -1,53 +1,108 @@
 package sdk;
 
 /**
- * Created by jesperbruun on 15/10/15.
+ * Created by Peter Villumsen on 15/10/15.
+ * This class contains the same as the Gamer class on the server side
+ * This class represents an object of a Gamer with all the attributes of a Gamer
  */
-public class Gamer extends User {
 
+//Class starts
+public class Gamer extends User
+{
+    //Declaring variables used in the class
     private int score;
     private int totalScore;
     private int kills;
     private String controls;
     private boolean winner;
 
-    public boolean isWinner() {
+    /**
+     * Getter for winner
+     * @return winner
+     */
+    public boolean isWinner()
+    {
         return winner;
     }
 
-    public void setWinner(boolean winner) {
+    /**
+     * Setter for winner
+     * @param winner sets the winner
+     */
+    public void setWinner(boolean winner)
+    {
         this.winner = winner;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void setKills(int kills) {
-        this.kills = kills;
-    }
-
-    public void setControls(String controls) {
-        this.controls = controls;
-    }
-
-    public int getKills() {
-        return kills;
-    }
-
-    public int getScore() {
+    /**
+     * Getter for score
+     * @return score
+     */
+    public int getScore()
+    {
         return score;
     }
 
-    public String getControls() {
+    /**
+     * Setter for score
+     * @param score sets score
+     */
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
+
+    /**
+     * Getter for totalScore
+     * @return totalScore
+     */
+    public int getTotalScore()
+    {
+        return totalScore;
+    }
+
+    /**
+     * Setter for totelScore
+     * @param totalScore sets totalScore
+     */
+    public void setTotalScore(int totalScore)
+    {
+        this.totalScore = totalScore;
+    }
+
+    /**
+     * Getter for kills
+     * @return kills
+     */
+    public int getKills()
+    {
+        return kills;
+    }
+
+    /**
+     * Setter for kills
+     * @param kills sets kills
+     */
+    public void setKills(int kills)
+    {
+        this.kills = kills;
+    }
+
+    /**
+     * Getter for controls
+     * @return controls
+     */
+    public String getControls()
+    {
         return controls;
+    }
+
+    /**
+     * Setter for controls
+     * @param controls sets controls
+     */
+    public void setControls(String controls)
+    {
+        this.controls = controls;
     }
 }

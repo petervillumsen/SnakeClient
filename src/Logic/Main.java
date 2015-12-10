@@ -1,11 +1,9 @@
 package Logic;
 
 /**
- * Created by ejer on 19/11/15.
+ * Created by Peter Villumsen on 19/11/15.
+ * Main class used to start the program. The program starts by running the run() method in the LogicController class.
  */
-
-import Logic.LogicController;
-
 import java.io.*;
 
 public class Main {
@@ -15,6 +13,5 @@ public class Main {
         Logic.LogicController lc = new Logic.LogicController();
 
         lc.run();
-        //logic.login("HeinHero","123");
     }
 }
