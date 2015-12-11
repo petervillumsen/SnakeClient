@@ -133,6 +133,4 @@ public class Screen extends JFrame
     {
         return deleteGameScreen;
     }//metode slut
-
-
 }//Class ended
