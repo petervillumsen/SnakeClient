@@ -58,6 +58,7 @@ public class ServerConnection {
 
 
             String output = response.getEntity(String.class);
+            System.out.println(output);
 
             if (response.getStatus() != 0) {
                 return output;
@@ -85,6 +86,7 @@ public class ServerConnection {
         int message = response.getStatus();
 
         String output = response.getEntity(String.class);
+        System.out.println(output);
 
         return message;
 

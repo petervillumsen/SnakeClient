@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class CreateGameScreen extends JPanel
 {
-    //Declaring variabler
+    //Declaring variables
     private JLabel lblCreateGame;
     private JLabel lblGameName;
     private JButton btnBack;
@@ -132,5 +132,5 @@ public class CreateGameScreen extends JPanel
     public JTextField gettextFieldGameName() {
         return textFieldGameName;
     }
-}//klasse slut
+}//Class ended
 
