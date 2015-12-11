@@ -1,7 +1,7 @@
 package sdk;
 
 /**
- * Created by ejer on 19/11/15.
+ * Created by Peter Villumsen on 19/11/15.
  */
 
 import com.google.gson.Gson;
@@ -9,8 +9,12 @@ import com.google.gson.reflect.TypeToken;
 import UI.Screen;
 import java.util.ArrayList;
 
+/**
+ * This class controls the different requests and paths that are sent to the server.
+ * This class is used to connect to the Api class on the server.
+ */
 
-
+//Start of class
 public class Logic {
 
     ServerConnection serverConnection = new ServerConnection();
@@ -40,8 +44,6 @@ public class Logic {
 
        serverConnection.post(json, "login/");
 
-        System.out.printf(json);
-
         if(serverConnection.post(json, "login/")==200){
 
             for (User users : sdk.Logic.getUser()){
@@ -61,15 +63,19 @@ public class Logic {
     }
     public static void deleteUser(int userId){
 
-
     }
+
+    /**
+     * Method using a get on the path users/ request to return all users and put them in an ArrayList.
+     * @return users
+     */
     public static ArrayList<User> getUser(){
 
         ServerConnection serverConnection = new ServerConnection();
 
         String json = serverConnection.get("users/");
 
-        //henyer users ned i en arrayList
+        //gets users to arrayList
         ArrayList<User> users = new Gson().fromJson(json, new TypeToken<ArrayList<User>>(){}.getType());
 
         return users;
@@ -116,7 +122,6 @@ public class Logic {
         int response = serverConnection.post(json, "games/");
 
         if(response==201){
-            screen.getCreateGameScreen().getLblGameWasCreated().setVisible(true);
             return true;
 
         }

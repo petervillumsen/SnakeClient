@@ -2,19 +2,18 @@ package UI;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 /**
- * @author alexanderlindkjaer
- *Denne klasse er det Jframe der indeholder alle de andre panels. alt skærm trafikken samles og går igennem denne klasse
+ * @author Peter Villumsen
+ * Denne klasse er det Jframe der indeholder alle de andre panels. alt skærm trafikken samles og går igennem denne klasse
  */
 public class Screen extends JFrame
 {
-    //Tilegener ID
+    //Sets ID
     public static final String LOGINSCREEN = "name_1";
     public static final String MENUSCREEN = "name_2";
     public static final String CREATEGAMESCREEN = "name_3";
@@ -22,7 +21,7 @@ public class Screen extends JFrame
     public static final String HIGHSCORESCREEN = "name_5";
     public static final String DELETEGAMESCREEN = "name_6";
 
-    //instantiere variabler
+    //Declaring variables
     public LoginScreen loginScreen;
     public MenuScreen menuScreen;
     public CreateGameScreen createGameScreen;
@@ -38,7 +37,7 @@ public class Screen extends JFrame
      */
     public Screen()
     {
-        //setter atributter
+        //setter attributes
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 529, 475);
         contentPane = new JPanel();
@@ -46,11 +45,10 @@ public class Screen extends JFrame
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
 
-        //layout sættes til cardlayout
+        //layout is set to cardlayout
         contentPane.setLayout(new CardLayout(0, 0));
 
-        //adder alle panels til dette contentpane
-
+        //adder all panels to the contentpane
         loginScreen = new LoginScreen();
         contentPane.add(loginScreen, LOGINSCREEN);
 
@@ -71,10 +69,10 @@ public class Screen extends JFrame
 
         c = (CardLayout) getContentPane().getLayout();
 
-    }//metode slut
+    }//method ended
 
     /**
-     * denne metode sender de forskellige cards til framet.
+     * This method sends cards to the frame
      * @param card
      */
     public void show(String card)
@@ -137,4 +135,4 @@ public class Screen extends JFrame
     }//metode slut
 
 
-}//klasse slut
+}//Class ended

@@ -22,14 +22,11 @@ public class JoinGameScreen extends JPanel {
     private JLabel lblNoControls;
     private JLabel lblGameJoined;
 
-    /**
-     * Create the panel.
-     */
     public JoinGameScreen() {
         setBackground(new Color(0, 102, 0));
         setLayout(null);
 
-        lblGameToJoin = new JLabel("GameID to join:");
+        lblGameToJoin = new JLabel("Game name to join:");
         lblGameToJoin.setForeground(new Color(255, 255, 255));
         lblGameToJoin.setBounds(88, 106, 98, 16);
         add(lblGameToJoin);
@@ -73,24 +70,21 @@ public class JoinGameScreen extends JPanel {
         lblError = new JLabel("Game not found");
         lblError.setForeground(new Color(255, 204, 51));
         lblError.setHorizontalAlignment(SwingConstants.CENTER);
-        lblError.setBounds(116, 336, 309, 16);
+        lblError.setBounds(130, 350, 309, 16);
         lblError.setVisible(false);
         add(lblError);
 
-
-        //opretter,giver attributter og adder error label
         lblNoControls = new JLabel("Please enter Controls and Game Name");
         lblNoControls.setForeground(new Color(255, 204, 51));
         lblNoControls.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNoControls.setBounds(116, 336, 309, 16);
+        lblNoControls.setBounds(130, 350, 309, 16);
         lblNoControls.setVisible(false);
         add(lblNoControls);
 
-        //opretter,giver attributter og adder error label
         lblGameJoined = new JLabel("Game Joined");
         lblGameJoined.setForeground(new Color(255, 204, 51));
         lblGameJoined.setHorizontalAlignment(SwingConstants.CENTER);
-        lblGameJoined.setBounds(116, 336, 309, 16);
+        lblGameJoined.setBounds(130, 350, 309, 16);
         lblGameJoined.setVisible(false);
         add(lblGameJoined);
     }
@@ -103,14 +97,6 @@ public class JoinGameScreen extends JPanel {
         return lblGameJoined;
     }
 
-    public JTextField getTextFieldEnterControls() {
-        return textFieldEnterControls;
-    }
-
-    public JTextField getTextGameId() {
-        return textGameId;
-    }
-
     public JLabel getLblError()
     {
         return lblError;
@@ -119,7 +105,7 @@ public class JoinGameScreen extends JPanel {
     public JButton getBtnBack()
     {
         return btnBack;
-    }//metode slut
+    }
 
     public JButton getBtnJoin()
     {
@@ -130,5 +116,13 @@ public class JoinGameScreen extends JPanel {
     {
         btnJoin.addActionListener(l);
         btnBack.addActionListener(l);
+    }
+
+    public JTextField getTextGameId() {
+        return textGameId;
+    }
+
+    public JTextField getTextFieldEnterControls() {
+        return textFieldEnterControls;
     }
 }

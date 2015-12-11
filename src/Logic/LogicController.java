@@ -91,7 +91,6 @@ public class LogicController
             }
             if(e.getSource() == screen.getMenuScreen().getBtnJoinGame())
             {
-                System.out.print("Når der klikkes fra menu " + logic.getCurrentUser().getId());
                 screen.show(Screen.JOINGAMESCREEN);
             }
             if(e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
@@ -136,17 +135,26 @@ public class LogicController
             {
                 screen.getCreateGameScreen().getControls().setText("");
                 screen.getCreateGameScreen().getGameName().setText("");
+                screen.getCreateGameScreen().getLblNoControls().setVisible(false);
+                screen.getCreateGameScreen().getLblGameWasCreated().setVisible(false);
                 screen.show(Screen.MENUSCREEN);
             }
 
             if(e.getSource() == screen.getCreateGameScreen().getBtnStartGameNow())
             {
+                if(screen.getCreateGameScreen().gettextFieldGameName().getText().equals("")
+                        ||screen.getCreateGameScreen().getTextFieldControls().getText().equals(""))
+
+                {
+                    //If there is an empty field an error label will show
+                    screen.getCreateGameScreen().getLblNoControls().setVisible(true);
+                    screen.getCreateGameScreen().getLblGameWasCreated().setVisible(false);
+                }
+                else
+
                 if(logic.createGame(gameName, moves)) {
-
-
-                }else {
-
-
+                    screen.getCreateGameScreen().getLblGameWasCreated().setVisible(true);
+                    screen.getCreateGameScreen().getLblNoControls().setVisible(false);
                 }
 
             }
@@ -173,6 +181,7 @@ public class LogicController
             if(e.getSource() == screen.getJoinGameScreen().getBtnBack())
             {
                 screen.getJoinGameScreen().getTextGameId().setText("");
+                screen.getJoinGameScreen().getTextFieldEnterControls().setText("");
                 screen.getJoinGameScreen().getLblError().setVisible(false);
                 screen.getJoinGameScreen().getLblNoControls().setVisible(false);
                 screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
@@ -198,7 +207,6 @@ public class LogicController
                     String moves = screen.getJoinGameScreen().getTextFieldEnterControls().getText();
 
                     //Creates a gamer opponent with id and controls of the currentUser
-                    System.out.print(logic.getCurrentUser().getId());
                     Gamer opponent = new Gamer();
                     opponent.setId(logic.getCurrentUser().getId());
                     opponent.setControls(moves);

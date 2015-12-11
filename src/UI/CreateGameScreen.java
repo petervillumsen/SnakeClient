@@ -1,7 +1,7 @@
 package UI;
 
 /**
- * Created by ejer on 30/11/15.
+ * Created by Peter Villumsen on 30/11/15.
  */
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class CreateGameScreen extends JPanel
 {
-    //instantiere variabler
+    //Declaring variabler
     private JLabel lblCreateGame;
     private JLabel lblGameName;
     private JButton btnBack;
@@ -20,8 +20,7 @@ public class CreateGameScreen extends JPanel
     private JLabel lblInstructions;
     private JButton btnStartGameNow;
 
-    private String gameName;
-    private String controls;
+    private JLabel lblNoControls;
     private JLabel lblGameWasCreated;
 
     public CreateGameScreen()
@@ -30,7 +29,6 @@ public class CreateGameScreen extends JPanel
         setBackground(new Color(0, 102, 0));
         setBounds(100, 100, 529, 475);
 
-        //opretter,giver attributter og adder transfer label
         lblCreateGame = new JLabel("Create Game");
         lblCreateGame.setForeground(Color.WHITE);
         lblCreateGame.setHorizontalAlignment(SwingConstants.CENTER);
@@ -38,13 +36,13 @@ public class CreateGameScreen extends JPanel
         lblCreateGame.setBounds(167, 10, 200, 50);
         add(lblCreateGame);
 
-        //opretter,giver attributter og adder users label
+
         lblGameName = new JLabel("Game name: ");
         lblGameName.setForeground(Color.WHITE);
         lblGameName.setBounds(123, 84, 89, 16);
         add(lblGameName);
 
-        //opretter,giver attributter og adder home knap
+
         btnBack = new JButton();
         btnBack.setIcon(new ImageIcon(CreateGameScreen.class.getResource("/Resources/BackButton.png")));
         btnBack.setBounds(31, 23, 40, 40);
@@ -66,7 +64,6 @@ public class CreateGameScreen extends JPanel
         textFieldControls.setColumns(10);
 
         lblInstructions = new JLabel("");
-        //lblNewLabel.setIcon(new ImageIcon(CreateGameScreen.class.getResource("/Resources/control.png")));
         lblInstructions.setIcon(new ImageIcon(CreateGameScreen.class.getResource("/Resources/control.png")));
         lblInstructions.setBounds(180, 122, 288, 208);
         add(lblInstructions);
@@ -81,11 +78,17 @@ public class CreateGameScreen extends JPanel
         lblGameWasCreated.setVisible(false);
         add(lblGameWasCreated);
 
-    }//metode slut
+        lblNoControls = new JLabel("Please enter Controls and Game Name");
+        lblNoControls.setForeground(new Color(255, 204, 51));
+        lblNoControls.setHorizontalAlignment(SwingConstants.CENTER);
+        lblNoControls.setBounds(150, 378, 300, 16);
+        lblNoControls.setVisible(false);
+        add(lblNoControls);
+
+    }
 
     /**
-     * Getter for btnHome
-     * @return btnHome
+     * Getters and Setters for this class
      */
     public JButton getBtnStartGameNow()
     {
@@ -96,14 +99,6 @@ public class CreateGameScreen extends JPanel
     {
         return btnBack;
     }//metode slut
-
-    public void setLblCreateGame(JLabel lblCreateGame) {
-        this.lblCreateGame = lblCreateGame;
-    }
-
-    public JLabel getLblCreateGame() {
-        return lblCreateGame;
-    }
 
     public JLabel getLblGameWasCreated() {
         return lblGameWasCreated;
@@ -126,5 +121,16 @@ public class CreateGameScreen extends JPanel
         btnBack.addActionListener(l);
     }
 
+    public JLabel getLblNoControls() {
+        return lblNoControls;
+    }
+
+    public JTextField getTextFieldControls() {
+        return textFieldControls;
+    }
+
+    public JTextField gettextFieldGameName() {
+        return textFieldGameName;
+    }
 }//klasse slut
 

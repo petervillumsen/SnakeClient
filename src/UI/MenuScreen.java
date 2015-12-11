@@ -1,45 +1,29 @@
 package UI;
 
 /**
- * Created by ejer on 30/11/15.
+ * Created by Peter Villumsen on 30/11/15.
  */
 
-
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import java.awt.event.ActionEvent;
-
 
 public class MenuScreen extends JPanel {
 
-    //instantiere variabler
+    //Declaring variables
     private JLabel   lblMenu;
     private JButton btnCreateGame;
     private JButton btnJoinGame;
     private JButton btnHighScores;
     private JButton btnDeleteGame;
     private JButton btnLogout;
-    private JButton btnTOM;
 
-    /**
-     * Create the panel.
-     */
     public MenuScreen()
     {
         setBackground(new Color(0, 102, 0));
         setBounds(100, 100, 529, 475);
         setLayout(null);
 
-        //opretter,giver attributter og adder deposit knap
         btnCreateGame = new JButton("Create Game");
         btnCreateGame.setBounds(193, 88, 142, 50);
         btnCreateGame.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
@@ -65,18 +49,13 @@ public class MenuScreen extends JPanel {
         btnLogout.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
         add(btnLogout);
 
-        btnTOM = new JButton("TOM");
-        btnTOM.setBounds(193, 382, 142, 46);
-        btnTOM.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-        add(btnTOM);
-
         lblMenu = new JLabel("Menu");
         lblMenu.setForeground(Color.WHITE);
         lblMenu.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
         lblMenu.setBounds(220, 41, 88, 35);
         add(lblMenu);
 
-    }//metode slut
+    }
 
     public JButton getBtnCreateGame()
     {
@@ -98,15 +77,7 @@ public class MenuScreen extends JPanel {
         return btnDeleteGame;
     }
 
-    public JButton getBtnLogout()
-    {
-        return btnLogout;
-    }
-
-    public JButton getBtnTOM()
-    {
-        return btnTOM;
-    }
+    public JButton getBtnLogout() { return btnLogout; }
 
     public void addActionListener(ActionListener l)
     {
@@ -115,7 +86,6 @@ public class MenuScreen extends JPanel {
         btnHighScores.addActionListener(l);
         btnDeleteGame.addActionListener(l);
         btnLogout.addActionListener(l);
-        btnTOM.addActionListener(l);
 
-    }//metode slut
-}//klasse slut
+    }
+}
